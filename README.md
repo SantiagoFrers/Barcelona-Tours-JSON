@@ -1,3 +1,5 @@
+Proyecto sin terminar funciondo con JSON - El completo funciona con base de datos integrada
+
 Nombre de fantasia: Barcelona Tours
 WEB: www.barcelonatours.com
 
