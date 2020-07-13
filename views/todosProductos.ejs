@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <!-- HEAD -->
+  <%- include("./partials/head") %>
+
+  <title>Productos</title>
+
+  <!-- BOOSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- CSS -->
+  <%- include("./partials/cssGeneral") %>
+  <link rel="stylesheet" href="/stylesheets/seccproductos.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <%- include("./partials/header") %>
+
+  <!-- CODIGO -->
+  <!--TITULO ACTIVIDAD-->
+  <div class="actividades-container">
+    <div class="titulo">
+
+      <h1>Tours & Actividades</h1>
+    </div>
+  </div>
+
+
+  <div class="container">
+
+    <!--BOXES ACT-->
+    <div class="row">
+      <div class="alineacion-central">
+        <% for (product of products) { const precioFinal =
+          product.precio * 0.9;  %>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="box-producto">
+            <img class="imagen-producto" src="/images/actividades/<%= product.image %>" />
+
+            <div class="nombre-tour"><%= product.nombre %></div>
+            <div class="descripcion-tour">
+              <%= product.descripcionCorta %> </div>
+            <div class="linea-precio">
+              Antes <span class="precio-original"> US$ <%= product.precio%></span> con BTours
+              <span class="precio-BT">US$<%= precioFinal %>!</span>
+            </div>
+            <div class="boton-ver">
+              <a href="/productos/detalle/<%= product.id%>">
+                <button type="button" class="btn btn-warning">Ver más</button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+
+    <!--OTRAS CATEGORIAS-->
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="tituloActRec">
+          <div class="subrayado">Otras categorias</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="alineacion-act">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="box-act">
+            <img class="imagen-act" src="/images/categorias/cat-1.jpg">
+            <a href="/productos/seccion/talleres">
+              <span class="nombre-cat">Talleres y Clases</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="box-act">
+            <img class="imagen-act" src="/images/categorias/cat-2.jpg">
+            <a href="/productos/seccion/espectaculos">
+              <span class="nombre-cat">Espectaculos</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="box-act">
+            <img class="imagen-act" src="/images/categorias/cat-3.jpg">
+            <a href="/productos/seccion/arte">
+              <span class="nombre-cat">Arte y Cultura</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="box-act">
+            <img class="imagen-act" src="/images/categorias/cat-4.jpg">
+            <a href="/productos/seccion/deporte">
+              <span class="nombre-cat">Deporte y Aventura</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <%- include("./partials/footer") %>
+
+  <!-- SCRIPT BOOTSTRAP -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script src="https://kit.fontawesome.com/dc516cd5e4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <!-- HEAD -->
+  <%- include("./partials/head") %>
+  <title>Carrito</title>
+
+  <!-- BOOSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- CSS -->
+  <%- include("./partials/cssGeneral") %>
+  <link rel="stylesheet" href="/stylesheets/carrito.css">
+  <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <%- include("./partials/header") %>
+
+  <!-- CODIGO -->
+  <!-- INICIO DEL MAIN -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12"><span class="titulo-carrito">Carrito</span></div>
+      <div class="col-lg-8 col-sm-12 informacion-tour">
+        <div class="imagen-producto">
+          <img src="./images/<%= products.image %>" alt="">
+        </div>
+        <div class="informacion-producto">
+          <h2><%= products.nombre %></h2>
+          <p><%= products.descripcion %></p>
+        </div>
+      </div>
+      <!--BOX RESERVA-->
+      <div class="col-lg-4 col-sm-12 reservar">
+        <div class="boxReserva">
+          <div class="cant-personas"> Cantidad de personas: </div>
+          <div class="precio"> U$D <%= products.precio %></div>
+          <div class="mensaje"> Precio exclusivo final <br> (Incluye impuestos)</div>
+          <button type="button" class="btn btn-danger btn-sm boton-reservar">Confirmar reserva</button>
+        </div>
+      </div>
+
+
+      <!-- SECCION ACTIVIDADES RECOMENDADAS -->
+      <div class="row">
+        <div class="col-12 titulo">
+          <div class="subrayado">Actividades recomendadas</div>
+        </div>
+      </div>
+      <div class="row alineacion-central">
+        <% for (products of pdtosRecomendados) { const precioFinal =
+          products.precio * 0.9; %>
+        <div class=" col-sm-12 col-md-6 col-lg-4">
+          <div class="box-producto">
+            <figure class="imagen-producto">
+              <img src="/images/actividades/<%= products.image%>" alt="imagen de producto" />
+            </figure>
+            <div class="estrellas">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="nombre-tour"><%= products.nombre %></div>
+            <div class="descripcion-tour"><%= products.descripcion %>
+            </div>
+            <div class="linea-precio">
+              Antes <span class="precio-original"><%= products.precio%></span> con BTours
+              <span class="precio-BT"> US$<%= precioFinal %></span>
+            </div>
+
+            <div class="boton-ver">
+              <a href="/productos/detalle/<%= products.id%>">
+                <button type="button" class="btn btn-warning">
+                  Ver más
+                </button></a>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+
+    </div>
+    <!-- FOOTER -->
+    <%- include("./partials/footer") %>
+
+    <!--SCRIPT FOOTER-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/dc516cd5e4.js" crossorigin="anonymous"></script>
+
+
+    <!-- SCRIPT DE bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/dc516cd5e4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
